@@ -51,5 +51,5 @@ while True:
                     # write that line to the end of the file
                     file.write(line)
             file.truncate()
-    # run script every 5 seconds
-    time.sleep(5)
+    # run script once per minute
+    time.sleep(60)
