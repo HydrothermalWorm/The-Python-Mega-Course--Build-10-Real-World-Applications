@@ -9,9 +9,9 @@ import time
 from datetime import datetime as dt
 
 # path to the file to be edited in the final version
-hosts_path = r"C:\Windows\System32\drivers\etc\hosts"
+hosts_path = "C:\\Windows\\System32\\drivers\\etc\\hosts"
 # temporary working path
-hosts_temp = "hosts"
+hosts_temp = r"C:\Users\jakek\Documents\GitHub\The-Python-Mega-Course--Build-10-Real-World-Applications\app3-build-a-website-blocker\hosts"
 # null ip to prevent connection
 redirect = "127.0.0.1"
 # list of blocked websites
@@ -24,7 +24,7 @@ website_list = ["www.facebook.com",
 while True:
     #checks if the current hour falls between 8:00AM and 4:00PM
     ## if it's between working hours
-    if dt(dt.now().year, dt.now().month,dt.now().day,8) < dt.now() < dt(dt.now().year, dt.now().month,dt.now().day,17):
+    if dt(dt.now().year, dt.now().month,dt.now().day,1) < dt.now() < dt(dt.now().year, dt.now().month,dt.now().day,17):
         # open the host file and append ('r+', not write which would clean out the rest of it)
         with open(hosts_path,'r+') as file:
             #read the file into content
@@ -34,7 +34,7 @@ while True:
                 if website in content:
                     pass
                 else:
-                    file.write(redirect+"       "+website+"\n")
+                    file.write(redirect+" "+website+"\n")
     ## if it's outside  working hours
     else:
         # open the hosts file in append mode as the variable file
