@@ -23,10 +23,9 @@ website_list = ["www.facebook.com",
                 ]
 # while loop will infinitely run until false
 while True:
-    #checks if the current hour falls between 8:00AM and 4:00PM
-    ## if it's between working hours
+    # if it's between working hours
     if 9 < dt.now().hour < 17:
-        # open the host file and append ('r+', not write which would clean out the rest of it)
+        # open the host file and append
         with open(hosts_path,'r+') as file:
             #read the file into content
             content=file.read()
@@ -38,7 +37,7 @@ while True:
                     file.write(redirect+" "+website+"\n")
     ## if it's outside  working hours
     else:
-        # open the hosts file in append mode as the variable file
+        # open the hosts file in append mode
         with open(hosts_path,'r+') as file:
             #create a list, where each string is a line of the hosts file
             content = file.readlines()
