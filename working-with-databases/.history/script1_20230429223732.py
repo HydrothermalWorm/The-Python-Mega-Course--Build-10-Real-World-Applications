@@ -32,15 +32,16 @@ def view():
     conn.close()
     return rows
 
-def view(item):
+def delete(item):
     conn=sqlite3.connect("lite.db")
     cur=conn.cursor()
-    cur.execute("SELECT * FROM store WHERE item=?",(item))
+    cur.execute("DELETE * FROM store WHERE item=?",(item,))
     conn.commit()
     conn.close()
     return rows
 
-# insert("Coffee Cup", 49, 3.99)
+# delete("Wine Glass")
 
 print(view())
 
+# insert("Coffee Cup", 49, 3.99)
